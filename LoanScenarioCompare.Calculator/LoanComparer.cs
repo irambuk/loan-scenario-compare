@@ -56,10 +56,22 @@ namespace LoanScenarioCompare.Calculator
                 throw new ArgumentException("is null or empty");
 
             var loanResult = new CalculationLoanResult { LoanId = loan.Id};
-            loanResult.Results = new List<CalculationPeriodResult>();
+            
+            loanResult.RepaymentPerTimePeriod = LoanCalculator.CalculateRepaymentPerPeriod(loan);
+            loanResult.TotalPaymentForLifeOfLoan = LoanCalculator.CalculateTotalRepayment(loan);
+            loanResult.TotalInterestPaymentForLifeOfLoan = loanResult.TotalPaymentForLifeOfLoan - loan.Amount;
 
-            //TODO: fill logic
-            //var x = Financial.Pmt();
+            loanResult.Results = new List<CalculationPeriodResult>();
+            for (int i = 0; i < loan.RepaymentPeriod.Count; i++)
+            {
+                var result = new CalculationPeriodResult()
+                {
+                    PeriodOffset = i + 1,
+                    PendingLoanAmount = LoanCalculator.CalculatePendingLoanAmount(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount),                    
+                };
+                result.PendingInterestAmount = LoanCalculator.CalculatePendingLoanInterest(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount, (double)result.PendingLoanAmount);
+                loanResult.Results.Add(result);
+            }
 
             return loanResult;
         }
