@@ -27,6 +27,13 @@ namespace LoanScenarioCompare.Calculator
 
     public class LoanComparer : ILoanComparer
     {
+        public ILoanCalculator LoanCalculator { get; set; }
+
+        public LoanComparer()
+        {
+            LoanCalculator = new LoanCalculator();
+        }
+
         public List<CalculationLoanResult> Compare(IList<Loan> loans)
         {
             if (loans == null || loans.Count == 0)
