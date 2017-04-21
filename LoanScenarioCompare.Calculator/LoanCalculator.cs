@@ -21,17 +21,17 @@ namespace LoanScenarioCompare.Calculator
 
     public class LoanCalculator : ILoanCalculator
     {
-        public IPeriodConverter PeriodConverter { get; set; }
+        private IPeriodConverter _periodConverter;
 
-        public LoanCalculator()
+        public LoanCalculator(IPeriodConverter periodConverter)
         {
-            PeriodConverter = new PeriodConverter();
+            _periodConverter = periodConverter;
         }
 
         public CalculationLoanRepayment CalculateRepaymentPerPeriod(Loan loan)
         {
             var amount = Convert.ToDouble(loan.Amount);
-            var rate = PeriodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
+            var rate = _periodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
             var periods = loan.RepaymentPeriod.Count;
 
             var repayment = (rate + rate / (Math.Pow(1 + rate, periods) - 1)) * amount;
@@ -42,7 +42,7 @@ namespace LoanScenarioCompare.Calculator
         public decimal CalculateTotalRepayment(Loan loan)
         {
             var amount = Convert.ToDouble(loan.Amount);
-            var rate = PeriodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
+            var rate = _periodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
             var periods = loan.RepaymentPeriod.Count;
 
             var repayment = Math.Pow(1 + rate, periods)  * amount;
@@ -53,7 +53,7 @@ namespace LoanScenarioCompare.Calculator
         public decimal CalculatePendingLoanAmount(Loan loan, int inNoOfPeriods, double repaymentPerPeriod)
         {
             var amount = Convert.ToDouble(loan.Amount);
-            var rate = PeriodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
+            var rate = _periodConverter.CovertPeriod(loan.Rate.PeriodType, loan.Rate.InterestPercentage / 100, loan.RepaymentPeriod.TimePeriodType);
             var periods = loan.RepaymentPeriod.Count;
             
             var repayment = Math.Pow(1 + rate, inNoOfPeriods) * amount - repaymentPerPeriod * (Math.Pow(1+rate, inNoOfPeriods) -1) / (rate);

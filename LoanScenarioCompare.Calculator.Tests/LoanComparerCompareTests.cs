@@ -8,37 +8,41 @@ namespace LoanScenarioCompare.Calculator.Tests
     [TestClass]
     public class LoanComparerCompareTests
     {
+        private ILoanComparer _comparer;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            var periodConverter = new PeriodConverter();
+            var loanCalculator = new LoanCalculator(periodConverter);
+            _comparer = new LoanComparer(loanCalculator);            
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            _comparer = null;
+        }
+
         [TestMethod]
         public void GivenNullLoans_WhenCompareLoans_ThrownsArgumentException()
         {
-            var comparer = new LoanComparer();
-
             Assert.ThrowsException<ArgumentException>(() => {
-                var results = comparer.Compare(null);
+                var results = _comparer.Compare(null);
             });
-            
-
-            //Assert.IsNotNull(results);
-            //Assert.AreEqual(0, results.Count);
         }
 
         [TestMethod]
         public void GivenEmptyLoans_WhenCompareLoans_ThrowsArgumentException()
         {
-            var comparer = new LoanComparer();
-
             Assert.ThrowsException<ArgumentException>(() => {
-                var results = comparer.Compare(new List<Loan>());
+                var results = _comparer.Compare(new List<Loan>());
             });
-
-            //Assert.IsNotNull(results);
-            //Assert.AreEqual(0, results.Count);
         }
 
         [TestMethod]
         public void Given5Loans_WhenCompareLoans_Returns5Results()
         {
-            var comparer = new LoanComparer();
             var loans = new List<Loan>
             {
                 new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1, PeriodType = TimePeriodTypes.Week } },
@@ -47,7 +51,7 @@ namespace LoanScenarioCompare.Calculator.Tests
                 new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1, PeriodType = TimePeriodTypes.Week } },
                 new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1, PeriodType = TimePeriodTypes.Week } }
             };
-            var results = comparer.Compare(loans);
+            var results = _comparer.Compare(loans);
 
             Assert.IsNotNull(results);
             Assert.AreEqual(loans.Count, results.Count);

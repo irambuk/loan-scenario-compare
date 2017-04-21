@@ -27,11 +27,11 @@ namespace LoanScenarioCompare.Calculator
 
     public class LoanComparer : ILoanComparer
     {
-        public ILoanCalculator LoanCalculator { get; set; }
+        private ILoanCalculator _loanCalculator;
 
-        public LoanComparer()
+        public LoanComparer(ILoanCalculator loanCalculator)
         {
-            LoanCalculator = new LoanCalculator();
+            _loanCalculator = loanCalculator;
         }
 
         public List<CalculationLoanResult> Compare(IList<Loan> loans)
@@ -57,8 +57,8 @@ namespace LoanScenarioCompare.Calculator
 
             var loanResult = new CalculationLoanResult { LoanId = loan.Id, Name = loan.Name };
 
-            loanResult.RepaymentPerTimePeriod = LoanCalculator.CalculateRepaymentPerPeriod(loan);
-            loanResult.TotalPaymentForLifeOfLoan = LoanCalculator.CalculateTotalRepayment(loan);
+            loanResult.RepaymentPerTimePeriod = _loanCalculator.CalculateRepaymentPerPeriod(loan);
+            loanResult.TotalPaymentForLifeOfLoan = _loanCalculator.CalculateTotalRepayment(loan);
             loanResult.TotalInterestPaymentForLifeOfLoan = loanResult.TotalPaymentForLifeOfLoan - loan.Amount;
 
             loanResult.Results = new List<CalculationPeriodResult>();
@@ -67,9 +67,9 @@ namespace LoanScenarioCompare.Calculator
                 var result = new CalculationPeriodResult()
                 {
                     PeriodOffset = i + 1,
-                    PendingLoanAmount = LoanCalculator.CalculatePendingLoanAmount(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount),                    
+                    PendingLoanAmount = _loanCalculator.CalculatePendingLoanAmount(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount),                    
                 };
-                result.PendingInterestAmount = LoanCalculator.CalculatePendingLoanInterest(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount, (double)result.PendingLoanAmount);
+                result.PendingInterestAmount = _loanCalculator.CalculatePendingLoanInterest(loan, i + 1, (double)loanResult.RepaymentPerTimePeriod.RepaymentAmount, (double)result.PendingLoanAmount);
                 loanResult.Results.Add(result);
             }
 

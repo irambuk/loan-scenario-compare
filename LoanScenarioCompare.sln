@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Calcula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Calculator.Tests", "LoanScenarioCompare.Calculator.Tests\LoanScenarioCompare.Calculator.Tests.csproj", "{FBD0587C-2E17-461B-8F66-371A17D8C90A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Calculator.Api", "LoanScenarioCompare.Calculator.Api\LoanScenarioCompare.Calculator.Api.csproj", "{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FBD0587C-2E17-461B-8F66-371A17D8C90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD0587C-2E17-461B-8F66-371A17D8C90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBD0587C-2E17-461B-8F66-371A17D8C90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
