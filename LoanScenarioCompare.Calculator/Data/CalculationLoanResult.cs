@@ -8,6 +8,8 @@ namespace LoanScenarioCompare.Calculator.Data
     {
         public Guid LoanId { get; set; }
 
+        public string Name { get; set; }
+
         public CalculationLoanRepayment RepaymentPerTimePeriod { get; set; }
 
         public decimal TotalPaymentForLifeOfLoan { get; set; }

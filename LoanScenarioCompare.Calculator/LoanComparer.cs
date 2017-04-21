@@ -55,8 +55,8 @@ namespace LoanScenarioCompare.Calculator
             if (loan == null || loan.Id == Guid.Empty || loan.Amount == 0 || loan.RepaymentPeriod == null || loan.RepaymentPeriod.Count == 0 || loan.Rate == null || loan.Rate.InterestPercentage <0)
                 throw new ArgumentException("is null or empty");
 
-            var loanResult = new CalculationLoanResult { LoanId = loan.Id};
-            
+            var loanResult = new CalculationLoanResult { LoanId = loan.Id, Name = loan.Name };
+
             loanResult.RepaymentPerTimePeriod = LoanCalculator.CalculateRepaymentPerPeriod(loan);
             loanResult.TotalPaymentForLifeOfLoan = LoanCalculator.CalculateTotalRepayment(loan);
             loanResult.TotalInterestPaymentForLifeOfLoan = loanResult.TotalPaymentForLifeOfLoan - loan.Amount;
