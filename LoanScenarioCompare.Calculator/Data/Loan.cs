@@ -14,7 +14,7 @@ namespace LoanScenarioCompare.Calculator.Data
 
         public RepaymentTypes RepaymentType { get; set; }
 
-        public Period RepaymentPeriod { get; set; }
+        public TimePeriod RepaymentPeriod { get; set; }
 
         public Rate Rate { get; set; }
 

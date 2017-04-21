@@ -41,11 +41,11 @@ namespace LoanScenarioCompare.Calculator.Tests
             var comparer = new LoanComparer();
             var loans = new List<Loan>
             {
-                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new Period { PeriodType = PeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
-                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new Period { PeriodType = PeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
-                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new Period { PeriodType = PeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
-                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new Period { PeriodType = PeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
-                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new Period { PeriodType = PeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } }
+                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
+                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
+                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
+                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } },
+                new Loan() { Id = Guid.NewGuid(), Amount = 10, RepaymentPeriod = new TimePeriod { TimePeriodType = TimePeriodTypes.Week, Count = 10 }, Rate = new Rate { InterestPercentage = 1 } }
             };
             var results = comparer.Compare(loans);
 

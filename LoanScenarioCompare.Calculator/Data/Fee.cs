@@ -10,6 +10,6 @@ namespace LoanScenarioCompare.Calculator.Data
 
         public decimal Amount { get; set; }
 
-        public PeriodTypes Period { get; set; }
+        public TimePeriodTypes Period { get; set; }
     }
 }

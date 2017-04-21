@@ -16,14 +16,14 @@ namespace LoanScenarioCompare.Calculator.Tests
             var loan = new Loan
             {
                 Amount = 100000,
-                RepaymentPeriod = new Period { Count = 60, PeriodType = PeriodTypes.Month },
-                Rate = new Rate { PeriodType = PeriodTypes.Year, InterestPercentage = 10 }
+                RepaymentPeriod = new TimePeriod { Count = 60, TimePeriodType = TimePeriodTypes.Month },
+                Rate = new Rate { PeriodType = TimePeriodTypes.Year, InterestPercentage = 10 }
             };
 
             var repayment = calculator.CalculateRepaymentPerPeriod(loan);
 
             Assert.IsNotNull(repayment);
-            Assert.AreEqual(PeriodTypes.Month, repayment.PeriodType);
+            Assert.AreEqual(TimePeriodTypes.Month, repayment.PeriodType);
             Assert.AreNotEqual(0, repayment.RepaymentAmount);
         }
     }

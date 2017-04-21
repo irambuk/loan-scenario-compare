@@ -11,15 +11,12 @@ namespace LoanScenarioCompare.Calculator.Data
         InterestOnly = 2,
     }
 
-    public enum PeriodTypes
+    public enum TimePeriodTypes
     {
         None = 0,
         Week = 1,
         Fortnight = 2,
         Month = 3,
         Year = 4
-    }
-
-    
-    
+    }    
 }

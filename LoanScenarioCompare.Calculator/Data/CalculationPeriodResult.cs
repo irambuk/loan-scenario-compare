@@ -6,7 +6,7 @@ namespace LoanScenarioCompare.Calculator.Data
 {
     public class CalculationPeriodResult
     {
-        public PeriodTypes PeriodType { get; set; }
+        public TimePeriodTypes PeriodType { get; set; }
 
         public int PeriodOffset { get; set; }
 
