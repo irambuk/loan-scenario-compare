@@ -21,13 +21,5 @@ namespace LoanScenarioCompare.Calculator.Data
                 return PendingLoanAmount + PendingInterestAmount;
             }
         }
-
-        public int PeriodOffsetInDays
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }

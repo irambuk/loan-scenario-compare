@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LoanScenarioCompare.Calculator.Data;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace LoanScenarioCompare.Calculator.Api.Controllers
 {
@@ -11,50 +13,28 @@ namespace LoanScenarioCompare.Calculator.Api.Controllers
     public class LoanScenariosController : Controller
     {
         private readonly ISampleLoanProvider _sampleLoanProvider;
+        private readonly ILoanComparer _loanComparer;
 
-
-        public LoanScenariosController(ISampleLoanProvider sampleLoanProvider)
+        public LoanScenariosController(ILoanComparer loanComparer, ISampleLoanProvider sampleLoanProvider)
         {
             _sampleLoanProvider = sampleLoanProvider;
+            _loanComparer = loanComparer;
         }
 
         // GET api/loanscenarios
         [HttpGet]
-        public IEnumerable<LoanScenario> Get()
+        public IActionResult Get()
         {
-            return new LoanScenario[] { _sampleLoanProvider.GetLoanScenario() };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+            var loanScenarios = new LoanScenario[] { _sampleLoanProvider.GetLoanScenario() };
+            return Ok(loanScenarios);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]LoanScenario loanScenario)
         {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-
-        private Loan GetSampleLoan()
-        {
-            var loan = new Loan();
-
-            return loan;
+            var loanResults = _loanComparer.Compare(loanScenario.Loans);
+            return Ok(loanResults);
         }
     }
 }
