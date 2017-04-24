@@ -33,6 +33,7 @@ namespace LoanScenarioCompare.Calculator.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]LoanScenario loanScenario)
         {
+            loanScenario.Id = Guid.NewGuid();
             var loanResults = _loanComparer.Compare(loanScenario.Loans);
             return Ok(loanResults);
         }

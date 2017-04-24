@@ -5,12 +5,27 @@ using System.Text;
 
 namespace LoanScenarioCompare.Calculator
 {
+    /// <summary>
+    /// Provides sample data for <see cref="Loan"/> and <see cref="LoanScenario"/> to help the subsequent API calls
+    /// </summary>
     public interface ISampleLoanProvider
     {
+        /// <summary>
+        /// Get a sample loan data 1
+        /// </summary>
+        /// <returns></returns>
         Loan GetLoan1();
 
+        /// <summary>
+        /// Get a sample loan data 2
+        /// </summary>
+        /// <returns></returns>
         Loan GetLoan2();
-
+        
+        /// <summary>
+        /// Get a sample loan scenario data
+        /// </summary>
+        /// <returns></returns>
         LoanScenario GetLoanScenario();
     }
 
