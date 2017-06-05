@@ -9,6 +9,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Calcula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Calculator.Api", "LoanScenarioCompare.Calculator.Api\LoanScenarioCompare.Calculator.Api.csproj", "{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LoanScenarioCompare.Calculator.Web.Angular", "LoanScenarioCompare.Calculator.Web.Angular\", "{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_62202"
+		Debug.AspNetCompiler.PhysicalPath = "LoanScenarioCompare.Calculator.Web.Angular\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62202\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_62202"
+		Release.AspNetCompiler.PhysicalPath = "LoanScenarioCompare.Calculator.Web.Angular\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62202\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62202"
+		SlnRelativePath = "LoanScenarioCompare.Calculator.Web.Angular\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +49,10 @@ Global
 		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D01BF3-B5B2-4E52-AA6B-194F20A8E7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
