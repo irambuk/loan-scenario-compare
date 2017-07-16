@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  selector: 'loan-compare-app',
+  template: `<loan-calculator></loan-calculator>`,
 })
 export class AppComponent  { name = 'Angular'; }
