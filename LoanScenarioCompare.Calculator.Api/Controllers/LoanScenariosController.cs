@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using LoanScenarioCompare.Calculator.Data;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Cors;
 
 namespace LoanScenarioCompare.Calculator.Api.Controllers
 {
@@ -22,6 +23,7 @@ namespace LoanScenarioCompare.Calculator.Api.Controllers
         }
 
         // GET api/loanscenarios
+        [EnableCors("MyPolicy")]
         [HttpGet]
         public IActionResult Get()
         {

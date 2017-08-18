@@ -17,7 +17,7 @@ namespace LoanScenarioCompare.Calculator.Api
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseApplicationInsights()
+                .UseApplicationInsights()                
                 .Build();
 
             host.Run();

@@ -1,5 +1,8 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+
+//import { LoanService } from '../services/loan.service';
 
 import { AppComponent } from './app.component';
 import { LoanCompareComponent } from './loan-compare.component';
@@ -8,10 +11,10 @@ import { LoanInfoComponent } from './loan-info.component';
 
 @NgModule({
   declarations: [
-    AppComponent, LoanCompareComponent, LoanGraphComponent, LoanInfoComponent
+      AppComponent, LoanCompareComponent, LoanGraphComponent, LoanInfoComponent      
   ],
   imports: [
-    BrowserModule
+      BrowserModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

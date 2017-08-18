@@ -30,6 +30,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LoanScenarioCompare.Calcula
 		SlnRelativePath = "LoanScenarioCompare.Calculator.Web.Angular\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{9A1F8A0D-02C2-4300-B1F8-490BBBCB5E9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanScenarioCompare.Tools.TsGen", "Tools\LoanScenarioCompare.Tools.TsGen\LoanScenarioCompare.Tools.TsGen.csproj", "{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,8 +56,15 @@ Global
 		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC3E6587-4AF2-4CCE-BACA-EF76F4DD5312}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{161EE0ED-EE0D-4B65-8CEA-1C46FAB15690} = {9A1F8A0D-02C2-4300-B1F8-490BBBCB5E9A}
 	EndGlobalSection
 EndGlobal
